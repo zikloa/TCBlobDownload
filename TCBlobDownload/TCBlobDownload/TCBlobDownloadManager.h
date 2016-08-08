@@ -148,4 +148,13 @@
 */
 - (void)cancelAllDownloadsAndRemoveFiles:(BOOL)remove;
 
+/**
+ *  cancel the download of specific url
+ *
+ *  @param url the downloader url
+ *
+ *  @since magi
+ */
+- (void)cancelDownloadWithUrl:(NSString *)url;
+
 @end
