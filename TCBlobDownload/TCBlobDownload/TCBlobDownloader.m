@@ -225,7 +225,7 @@ NSString * const TCBlobDownloadErrorHTTPStatusKey = @"TCBlobDownloadErrorHTTPSta
     }
 
     if (!error) {
-        [self.receivedDataBuffer setData:nil];
+        [self.receivedDataBuffer setData:[NSData dataWithBytes:NULL length:0]];
 
         dispatch_async(dispatch_get_main_queue(), ^{
             if (self.firstResponseBlock) {
@@ -253,7 +253,7 @@ NSString * const TCBlobDownloadErrorHTTPStatusKey = @"TCBlobDownloadErrorHTTPSta
 
     if (self.receivedDataBuffer.length > kBufferSize && [self isExecuting]) {
         [self.file writeData:self.receivedDataBuffer];
-        [self.receivedDataBuffer setData:nil];
+        [self.receivedDataBuffer setData:[NSData dataWithBytes:NULL length:0]];
     }
 
     dispatch_async(dispatch_get_main_queue(), ^{
@@ -273,7 +273,7 @@ NSString * const TCBlobDownloadErrorHTTPStatusKey = @"TCBlobDownloadErrorHTTPSta
 {
     if ([self isExecuting]) {
         [self.file writeData:self.receivedDataBuffer];
-        [self.receivedDataBuffer setData:nil];
+        [self.receivedDataBuffer setData:[NSData dataWithBytes:NULL length:0]];
         
         [self notifyFromCompletionWithError:nil pathToFile:self.pathToFile];
     }
